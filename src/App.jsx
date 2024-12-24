@@ -64,7 +64,7 @@ function App() {
     <>
       <Navbar/> 
       <div className="mx-3 md:container md:mx-auto my-5 rounded-xl p-5 bg-red min-h-[80vh] md:w-1/2">
-        <h1 className="font-bold text-center text-xl">iTask - Manage your todos at one place</h1>
+        <h1 className="font-bold text-center text-xl">Manage Your To-Do's From Here</h1>
         <div className="addTodo my-5 flex flex-col gap-4">
           <h2 className="text-lg font-bold">Add a Todo</h2>
           <input 
@@ -86,7 +86,7 @@ function App() {
           type="checkbox" 
           checked={showFinished} 
         /> 
-        Show Finished
+        <span> Show Finished</span>
         <h2 className="text-lg font-bold">Your Todos</h2>
         <div className="todos">
           {todos.length === 0 && <div className="m-5">No Todos to display</div>}
