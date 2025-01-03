@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
+import "./index.css";
 import Login from "./components/login";
 import SignUp from "./components/register";
 import Profile from "./components/profile";
