@@ -3,6 +3,8 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { toast } from "react-toastify";
 import { setDoc, doc } from "firebase/firestore";
+// import "../AuthStyle.css";
+import googleImage from "../google.png";
 
 function SignInwithGoogle() {
   const googleLogin = async () => {
@@ -36,7 +38,12 @@ function SignInwithGoogle() {
 
   return (
     <div>
-      <p className="continue-p">-- Or continue with --</p>
+      <p
+        className="auth-form-group"
+        style={{ textAlign: "center", margin: "20px 0" }}
+      >
+        -- Or continue with --
+      </p>
       <div
         style={{
           display: "flex",
@@ -45,11 +52,7 @@ function SignInwithGoogle() {
         }}
         onClick={googleLogin}
       >
-        <img
-          src={import("../google.png")}
-          alt="Google Login"
-          width={"60%"}
-        />
+        <img src={googleImage} alt="Google Login" width={"60%"} />
       </div>
     </div>
   );

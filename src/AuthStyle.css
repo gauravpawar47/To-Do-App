@@ -1,0 +1,87 @@
+/* Login and Registration Form Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #121212; /* Match with faint black background */
+}
+
+.auth-card {
+  background-color: #1c1c1c; /* Dark gray for the form card */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 400px; /* Limit form width */
+  color: white; /* White text color */
+}
+
+.auth-card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff; /* Blue color for the heading */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form-group {
+  margin-bottom: 15px;
+}
+
+.auth-form-group label {
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 5px;
+  color: #cccccc; /* Light gray labels */
+}
+
+.auth-form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  background-color: #2a2a2a; /* Slightly lighter background for inputs */
+  color: white; /* White text for inputs */
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: purple; /* Purple button */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-btn:hover {
+  background-color: #5e005e; /* Darker purple on hover */
+  transform: scale(1.02);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.875rem;
+  color: #cccccc;
+}
+
+.auth-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

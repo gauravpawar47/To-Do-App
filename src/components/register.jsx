@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import "../AuthStyle.css";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -15,16 +16,14 @@ function Register() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      console.log(user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
           firstName: fname,
           lastName: lname,
-          photo: ""
+          photo: "",
         });
       }
-      console.log("User Registered Successfully!!");
       toast.success("User Registered Successfully!!", {
         position: "top-center",
       });
@@ -37,66 +36,64 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h3>Sign Up</h3>
+    <div className="auth-container">
+      <div className="auth-card">
+        <form onSubmit={handleRegister}>
+          <h2>Sign Up</h2>
 
-      <div className="mb-3">
-        <label>First Name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="First name"
-          value={fname}
-          onChange={(e) => setFname(e.target.value)}
-          required
-        />
+          <div className="auth-form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              placeholder="First name"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="auth-form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              placeholder="Last name"
+              value={lname}
+              onChange={(e) => setLname(e.target.value)}
+            />
+          </div>
+
+          <div className="auth-form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="auth-form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="auth-btn">
+            Sign Up
+          </button>
+
+          <p className="auth-footer">
+            Already registered? <a href="/login">Login</a>
+          </p>
+        </form>
       </div>
-
-      <div className="mb-3">
-        <label>Last Name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Last name"
-          value={lname}
-          onChange={(e) => setLname(e.target.value)}
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Email Address</label>
-        <input
-          type="email"
-          className="form-control"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Password</label>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="d-grid">
-        <button type="submit" className="btn btn-primary">
-          Sign Up
-        </button>
-      </div>
-
-      <p className="forgot-password text-right">
-        Already registered? <a href="/login">Login</a>
-      </p>
-    </form>
+    </div>
   );
 }
 

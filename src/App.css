@@ -11,8 +11,8 @@
 
 /* Global styles */
 body {
-  background-color: #f8f9fa; /* Light background */
-  color: #333; /* Dark text */
+  background-color: #121212; /* Faint black background */
+  color: #ffffff; /* White text */
   font-weight: 400;
   line-height: 1.5;
 }
@@ -34,19 +34,19 @@ button {
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  background-color: #007bff;
+  background-color: #6a0dad; /* Purple button */
   color: white;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #4b0082; /* Dark purple on hover */
   transform: scale(1.05);
 }
 
 /* Link styles */
 a {
-  color: #007bff;
+  color: #1e90ff; /* Blue links */
   text-decoration: none;
 }
 
@@ -59,14 +59,15 @@ a:hover {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 0.25rem;
-  margin-bottom: 10px;
+  background-color: #1c1c1c; /* Faint black input */
+  color: white;
 }
 
 .form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #6a0dad; /* Purple focus */
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.5);
 }
 
 .form-group {
@@ -81,17 +82,18 @@ a:hover {
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #2f2f2f; /* Gray card background */
+  border: none;
   border-radius: 0.25rem;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .card-header {
   font-size: 1.25rem;
   font-weight: 600;
-  background-color: #f1f1f1;
+  background-color: #444;
+  color: white;
   padding: 10px;
   border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -102,30 +104,37 @@ a:hover {
 
 .card-footer {
   font-size: 0.875rem;
-  background-color: #f1f1f1;
+  background-color: #444;
+  color: white;
   padding: 10px;
   border-radius: 0 0 0.25rem 0.25rem;
 }
 
+/* Card icons */
+.card-icon {
+  color: #6a0dad; /* Purple icons */
+}
+
 /* Navbar styles */
 .navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: #000000; /* Dark black navbar */
+  border-bottom: 1px solid #444;
   padding: 10px 20px;
 }
 
 .navbar .navbar-brand {
   font-size: 1.5rem;
   font-weight: 600;
+  color: #1e90ff; /* Blue text on navbar */
 }
 
 .navbar .navbar-nav .nav-link {
-  color: #007bff;
+  color: #1e90ff; /* Blue text */
   padding: 8px 15px;
 }
 
 .navbar .navbar-nav .nav-link:hover {
-  color: #0056b3;
+  color: #0056b3; /* Slightly darker blue */
 }
 
 /* Miscellaneous styles */
@@ -169,6 +178,25 @@ a:hover {
   margin-bottom: 3rem;
 }
 
+/* Login and Register modules */
+.login-container, .register-container {
+  background-color: #1c1c1c; /* Faint black */
+  padding: 20px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Add Button styles */
+.add-button {
+  background-color: #6a0dad; /* Purple button */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #4b0082; /* Dark purple on hover */
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 10px;
@@ -182,4 +210,3 @@ a:hover {
     padding: 15px;
   }
 }
-
