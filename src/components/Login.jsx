@@ -1,57 +1,69 @@
-import React, { useState } from "react";
-import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import "../styles/Auth.css";
+import React, { useState } from "react";
+import { auth } from "./firebase";
+import { toast } from "react-toastify";
+import SignInwithGoogle from "./signInWIthGoogle";
 
-const Login = () => {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
-    } catch (err) {
-      setError(err.message);
+      console.log("User logged in Successfully");
+      window.location.href = "/profile";
+      toast.success("User logged in Successfully", {
+        position: "top-center",
+      });
+    } catch (error) {
+      console.error(error.message);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
     }
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Login</h2>
-        {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleLogin}>
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="auth-button">
-            Log In
-          </button>
-        </form>
+    <form onSubmit={handleSubmit}>
+      <h3>Login</h3>
+
+      <div className="mb-3">
+        <label>Email address</label>
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
-    </div>
+
+      <div className="mb-3">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div className="d-grid">
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </div>
+
+      <p className="forgot-password text-right">
+        New user? <a href="/register">Register Here</a>
+      </p>
+
+      <SignInwithGoogle />
+    </form>
   );
-};
+}
 
 export default Login;
